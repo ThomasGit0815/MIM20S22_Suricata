@@ -1,34 +1,78 @@
-# biberbandeMIM20W21
-repository für den Prototypen zum Projekt "Biberbande"
+# Aufbau der Testumbegung
+Suricata hat, je nach Anwendungsfall und Einsatzzweck unterschiedlichste  
+Anforderungen bezüglich der Rechenleistung, des Arbeitsspeichers und des  
+Speicherplatzes. Da wir in unserem PoC kein Live-Monitoring aller Datenpakete  
+inklusive Speicherung vorsehen, greifen wir auf Entwicklerlaptops zurück, die  
+mit 32 GB Arbeitsspeicher und einem Core i7 Prozessor ausgestattet sind.  
+  
+![](suricata_testaufbau.png) 
+  
+  
+Letztendlich haben wir unsere finale PoC Installation auf einem ubuntu 22.04 LTS  
+server durchgeführt. Nach dem Aufsetzten des 22.04 ubuntu servers unter  
+Virtual Box erfolgte die Einbindung der Personal Package Archives (PPAs):  
+  
+## Installation von Suricata  
 
-## Setup
+```sudo add-apt-repository ppa:oisf/suricata-stable –yes```
 
-- Ordner 'biberbande' runterladen
-  -Das Spiel ist kann ohne Installation direkt in jedem
-   aktuellen Browser gespielt werden.
+Aktualisierung des repositories mit: 
 
-## Play
+```sudo apt update```
 
+Installation von suricata mit dem Paketmanager 
+
+```apt-cache policy suricata```
+```sudo apt install suricata jq```
+  
+Test der erfolgreichen Installation über die Ausgabe der Verstionsnummer. 
+
+```sudo suricata --build-info```
+
+Die Suricata Regeln sind unter:  
+
+```/etc/suricata/rules``` abgelegt.  
+
+Die Konfigurationsdatei von Suricata liegt unter: 
+
+```/etc/suricata/suricata.yaml```
+
+Für die initiale Konfiguration ist der Quickstart guide sehr empfehlenswert.  
+(Quelle: <https://suricata.readthedocs.io/en/latest/quickstart.html>)  
+
+Nach Abschluss der Konfiguration kann diese mit folgendem Befehl syntaktisch überprüft werden:
+
+```sudo suricata -T -c /etc/suricata/suricata.yaml –v```
+
+Wenn die Konfigurationsprüfung ohne Fehlermeldung zurückkehrt,  
+kann suricata mit folgendem Befehl gestartet werden: 
+
+```sudo systemctl enable --now suricata```
+  
+Als Test-Case soll ein SYN-flood mit Hping3 erzeugt werden, welche idealerweise  
+von suricata erkannt wird. Zur Vorbereitung des Tests wird die Packet-Offload-Funktionen
+der Netzwerkschnittstelle, auf der Suricata lauscht mit: 
+
+```ethtool -K enp0s3 gro off lro off``` deaktiviert  
+
+  
+Suricata wird jetzt im PCAP Modus gestartet und monitort den Netzwerkcerkehr der Schnittstelle: enp0s3  
+Die SYN-flood Attacke wird gestartet mit: 
+
+```hping3 -S -p 80 --flood --rand-source 192.178.162.15 -I enp0s3 -c 150```
+  
+Suricata schreibt alle Ausgaben der DDoS-Attacke in das Logfile: ```/var/log/suricata/fast.log```
+  
+Im Logfile finden sich die folgenden Warnungen:  
 ```
-    #in das Verzeichnis 'biberbande' wechseln 
-    und Rechtsklick auf die Datei: biberbande.html
-    (mit einem beliebigen, halbwegs aktuellem, Browser öffnen)
-    
+05/28/2022 … ET DROP Spamhaus DROP Listed Traffic Inbound group 26 ...  
+[Classification: Misc Attack] [Priority: 2] {TCP} 192.178.162.16:17846 -> 192.178.162.15:80
+05/28/2022 … ET DROP Spamhaus DROP Listed Traffic Inbound group 16 ...  
+[Classification: Misc Attack] [Priority: 2] {TCP} 192.178.162.17:17899 -> 192.178.162.15:80  
+05/28/2022 … ET DROP Spamhaus DROP Listed Traffic Inbound group 2 ... 
+[Classification: Misc Attack] [Priority: 2] {TCP} 192.178.162.18:20024 -> 192.178.162.15:80
 ```
 
-- Spielstart mit "Start Runde" (auf dem Ablagestapel erscheint die Karte des Computers)
-- über "Karten zeigen (außen)" können die beiden äußeren Karten angezeigt werden 
-    (die Karten werden automatisch nach 2 Sekunden wieder ausgeblendet)
-  - jetzt entweder die Karte des Ablagestapels nehmen und direkt gegen eine Karte
-    tauschen (hierzu entweder "Tausche 1." oder "Tausche 2." ... drücken, wenn die 
-    Karte des Ablagestapels mit einer der vier Karten tauschen möchte)
-  - oder eine Karte vom Ziehstapel nehmen, hierzu "vom Stapel ziehen" auswählen, 
-    die Karte wird direkt angezeigt. Soll diese Karte gegen eine der vier getauscht
-    werden, dann wieder "Tausche 1." oder "Tausche 2." usw. auswählen.
-  - die gezogene Karte des Ziehstapels kann auch wieder direkt auf den Ablagestapel
-    zurückgelegt werden. Hierzu "Karte abwerfen" auswählen.
-  - "Wertungsrunde" kann immer ausgewählt werden. Der Spieler und der Computer
-    ist anschließend noch einmal dran.
   
 
 ![](biberbande_testui.png)
