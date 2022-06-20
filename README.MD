@@ -48,7 +48,14 @@ Wenn die Konfigurationsprüfung ohne Fehlermeldung zurückkehrt,
 kann suricata mit folgendem Befehl gestartet werden: 
 
 ```sudo systemctl enable --now suricata```
-  
+
+Der aktuelle Status lässt sich anschließend mit:  
+
+```sudo systemctl status suricata``` ermitteln.  
+
+![](suricata_systemctl_status.png)  
+
+
 Als Test-Case soll ein SYN-flood mit Hping3 erzeugt werden, welche idealerweise  
 von suricata erkannt wird. Zur Vorbereitung des Tests wird die Packet-Offload-Funktionen
 der Netzwerkschnittstelle, auf der Suricata lauscht mit: 
