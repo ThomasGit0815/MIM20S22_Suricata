@@ -22,8 +22,8 @@ Aktualisierung des repositories mit:
 
 Installation von suricata mit dem Paketmanager 
 
-```apt-cache policy suricata```
-```sudo apt install suricata jq```
+```apt-cache policy suricata```  
+```sudo apt install suricata jq```  
   
 Test der erfolgreichen Installation über die Ausgabe der Verstionsnummer. 
 
