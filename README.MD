@@ -29,16 +29,25 @@ Test der erfolgreichen Installation über die Ausgabe der Verstionsnummer.
 
 ```sudo suricata --build-info```
 
-Die Suricata Regeln sind unter:  
-
-```/etc/suricata/rules``` abgelegt.  
+## Konfiguration von Suricata
 
 Die Konfigurationsdatei von Suricata liegt unter: 
 
 ```/etc/suricata/suricata.yaml```
 
+Über die Konfigurationsdatei wird der Speicherort der Regeln  
+und des Loggings festgelegt.  
+
+![](suricata_configuration_rule_path.png)  
+
 Für die initiale Konfiguration ist der Quickstart guide sehr empfehlenswert.  
 (Quelle: <https://suricata.readthedocs.io/en/latest/quickstart.html>)  
+  
+Für unseren PoC haben wir das default Verzeichnis für die Suricata Regeln  
+unverändert gelassen. Mit Abschluss der Installation sind  
+unter ```/etc/suricata/rules``` folgende Regeldateien abgelegt:  
+
+![](suricata_rules.png)  
 
 Nach Abschluss der Konfiguration kann diese mit folgendem Befehl syntaktisch überprüft werden:
 
