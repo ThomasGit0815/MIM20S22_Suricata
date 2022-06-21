@@ -64,6 +64,7 @@ Der aktuelle Status lässt sich anschließend mit:
 
 ![](suricata_systemctl_status.png)  
 
+## Test-Case SYN-flood 
 
 Als Test-Case soll ein SYN-flood mit Hping3 erzeugt werden, welche idealerweise  
 von suricata erkannt wird. Zur Vorbereitung des Tests wird die Packet-Offload-Funktionen
@@ -89,6 +90,20 @@ Im Logfile finden sich die folgenden Warnungen:
 [Classification: Misc Attack] [Priority: 2] {TCP} 192.178.162.18:20024 -> 192.178.162.15:80
 ```
 
+## Test-Case SQL-Injection
   
+Die Anfälligkeit einer Web-Anwendung gegenüber SQL-Injection kann z.B. über das Skript:  
+(Quelle: <https://nmap.org/nsedoc/scripts/http-sql-injection.html>) ermittelt werden.  
+Das Skript durchsucht einen HTTP-Server nach URLs, die Abfragen enthalten.  
+Anschließend kombiniert das Skript manipulierte SQL-Befehle mit anfälligen URLs,  
+um einen Fehler zu erhalten. Die Fehler werden analysiert, um festzustellen,  
+ob die URL anfällig für Angriffe ist. Das Skript stellt die einfachste Form der SQL-Injektion dar.  
 
-![](biberbande_testui.png)
+Über die in Suricata hinterlegt Regel:  
+```
+alert http $EXTERNAL_NET any -> $HTTP_SERVERS any (msg:"ET SCAN NMAP SQL Spider Scan"; flow:established,to_server; http.method; content:"GET"; http.uri; content:" OR sqlspider"; reference:url,nmap.org/nsedoc/scripts/sql-injection.html; classtype:web-application-attack; sid:2013778; rev:3; metadata:created_at 2011_10_19, updated_at 2020_04_20;)
+```
+
+
+
+
