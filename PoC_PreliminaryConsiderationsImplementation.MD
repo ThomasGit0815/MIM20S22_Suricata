@@ -77,7 +77,7 @@ zwischen den Tools kompliziert sein kann. [34]
 [34]	Security Onion Documentation — Security Onion 2.3 documentation. [Online].  
 Verfügbar unter: https://docs.securityonion.net/en/2.3/ (Zugriff am: 3. Juni 2022).  
 
-### Festkegung auf IDS-/IPS für PoC
+### Festlegung auf IDS-/IPS für PoC
 Nach Abschluss der Recherche haben wir uns anhand der Kriterien:  
   
     • Open Source  
