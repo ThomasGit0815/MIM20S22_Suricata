@@ -1,3 +1,94 @@
+# Auswahl eines Intrusion Detection und Prevention Systems
+IDS-/IPS-Lösung identifizieren potenzielle Bedrohungen auf der Grundlage  
+integrierter Regeln und Profile. Diese Regeln beruhen im Allgemeinen  
+auf Signaturen oder Anomalien. Doch welche IDS-/IPS-Lösung ist für welchen  
+Einsatzzweck geeignet? Welche Voraussetzungen benötigen diese Systeme  
+hinsichtlich Hardware und fachlicher Expertise bei der Konfiguration?  
+Welche Budgets müssen berücksichtigt werden? Als erstes Vorauswahlkriterium  
+haben wir uns auf Open Source IDS-/IPS Systeme beschränkt. Aufgrund der knappen  
+Zeit und des Null Budget war diese Einschränkung am naheliegendsten.  
+Wir haben folgende Open Source IDS-/IPS-Systeme näher recherchiert.  
+
+### Snort
+Snort ist eines der ältesten IDS Systeme und quasi ein Standard-IDS  
+in der Open-Source-Welt. Snort verfügt nicht über eine grafische  
+Benutzeroberfläche, bietet aber dennoch ein hohes Maß an Anpassungsmöglichkeiten.  
+Es kann zur Erkennung einer Vielzahl von Angriffen wie Buffer-Overflow,  
+Stealth-Port-Scans, CGI-Angriffen, OS-Fingerprinting-Versuchen und vielem  
+mehr verwendet werden. Die Snort-Community lebt von engagierten Entwicklern,  
+die Support für die Software leisten. Snort ist für Linux, Windows, Fedora,  
+Centos und FreeBSD verfügbar.[30]  
+[30]	Snort Setup Guides for Emerging Threats Prevention. [Online].  
+Verfügbar unter: https://www.snort.org/documents (Zugriff am: 3. Juni 2022).  
+
+### Zeek
+Zeek ist ein leistungsfähiges Netzwerküberwachungsprogramm, das sich auf die  
+allgemeine Netzwerkanalyse konzentriert. Es verwendet eine domänenspezifische  
+Sprache, die sich nicht auf traditionelle Signaturen stützt. Zeek kann z.B.  
+so konfiguriert werden, dass es verdächtige Dateien automatisch herunterlädt,  
+diese analysiert, die Ergebnisse weiterschickt und die Quelle auf eine schwarze  
+Liste setzt und das Gerät, das die Datei heruntergeladen hat, abschaltet.  
+Zeek läuft auf Unix, Linux, Free BSD und Mac OS X und kann verdächtige Signaturen  
+und Anomalien erkennen. Die Benutzergemeinschaft von Zeek wird von einigen  
+bekannten Universitäten, Supercomputing-Zentren, Forschungslabors und auch  
+vielen Open-Science-Communities unterstützt.[31]  
+[31] Zeek Documentation — Book of Zeek (git/master). [Online].  
+Verfügbar unter: https://docs.zeek.org/en/master/ (Zugriff am: 3. Juni 2022).  
+
+### OSSEC
+OSSEC ist ein IDS-System, das Protokollanalyse, Dateiintegritätsüberwachung,  
+Windows-Registrierungsüberwachung, zentralisierte Richtliniendurchsetzung,  
+Rootkit-Erkennung, Echtzeit-Alarmierung und aktive Reaktion bietet. OSSEC läuft  
+auf den Betriebssystemen Linux, OpenBSD, FreeBSD, MacOS, Solaris und Windows.  
+OSSEC verfügt über eine Client/Server-Architektur, die Warnmeldungen und  
+Protokolle zur Analyse an einen zentralen Server sendet, selbst wenn das  
+Host-System  vollständig kompromittiert ist. [32]  
+[32]	OSSEC Documentation — OSSEC. [Online].  
+Verfügbar unter: https://www.ossec.net/docs/ (Zugriff am: 3. Juni 2022).  
+
+### Suricata  
+Suricata ist eine robuste Engine zur Erkennung von Netzwerkbedrohungen,  
+die Intrusion Detection in Echtzeit, Inline Intrusion Prevention (IPS),  
+Network Security Monitoring (NSM) und Offline-Pcap-Verarbeitung ermöglicht.  
+Obwohl sich die Architektur von Suricata von Snort unterscheidet, verhält es  
+sich wie Snort und kann die gleichen Signaturen verwenden. Während Snort als  
+Single-Thread-System arbeitet, d. h. es kann nur eine CPU gleichzeitig nutzen,  
+ist Suricata ein Multi-Thread-System, das alle verfügbaren CPUs nutzen kann.  
+Suricata verfügt außerdem über eine integrierte Hardware-Beschleunigungstechnologie,  
+welche die Leistung von Grafikkarten für die Untersuchung des Netzwerkverkehrs  
+nutzen kann. Suricata ist in der Lage, Lua-Skripte aufzurufen, die dazu verwendet  
+werden können, den Datenverkehr zu untersuchen oder Malware zu entschlüsseln.  
+Suricata ist für Linux, FreeBSD, OpenBSD, macOS / Mac OS X und Windows verfügbar  
+und wird von einer treuen Community unterstützt. [33]  
+[33]	Suricata, Documentation - Suricata. [Online].  
+Verfügbar unter: https://suricata.io/documentation/ (Zugriff am: 3. Juni 2022).  
+
+### Security Onion
+Security Onion wurde für die Suche nach Bedrohungen, die Erkennung von Eindringlingen,  
+die Überwachung der Unternehmenssicherheit und die Protokollverwaltung entwickelt.  
+Das Interessante an diesem Tool ist, dass es die Leistung anderer Sicherheitstools  
+wie Snort, Kibana, Zeek, Wazuh, CyberChef, NetworkMiner, Suricata und Logstash kombiniert.  
+Diese Funktion macht es sehr umfassend und vielseitig und deckt so ziemlich jeden Winkel  
+der IT-Sicherheit ab. Das Einrichten und Arbeiten mit mehreren Tools kann kompliziert sein,  
+aber Security Onion verfügt über einen intuitiven Einrichtungsassistenten, der den  
+Einrichtungsprozess vereinfacht. Einer der Nachteile dieses Tools ist,  
+dass einige der Tools sich überschneidende Funktionen haben und die Navigation  
+zwischen den Tools kompliziert sein kann. [34]  
+[34]	Security Onion Documentation — Security Onion 2.3 documentation. [Online].  
+Verfügbar unter: https://docs.securityonion.net/en/2.3/ (Zugriff am: 3. Juni 2022).  
+
+### Festkegung auf IDS-/IPS für PoC
+Nach Abschluss der Recherche haben wir uns anhand der Kriterien:  
+  
+    • Open Source  
+    • Unterstützung möglichst vieler Betriebssysteme  
+    • eine aktuelle sehr gut gepflegte Dokumentation  
+    • eine performant und ressourcenschonend arbeitende Regel-Engine  
+      
+      
+für Suricata als IDS-/IPS System für den PoC entschieden.  
+  
+  
 # Aufbau der Testumbegung
 Suricata hat, je nach Anwendungsfall und Einsatzzweck unterschiedlichste  
 Anforderungen bezüglich der Rechenleistung, des Arbeitsspeichers und des  
