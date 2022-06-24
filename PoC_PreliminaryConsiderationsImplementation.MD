@@ -1,3 +1,53 @@
+# Sicherheitsmaßnahmen in einer Cyber Kill Chain
+***Access Control:*** Die Zugriffskontrolle umfasst die Zugriffsverwaltung und 
+-steuerung auf bestimmte Objekte. Die Zugriffsrechte der Benutzer sollten auf ein Minimum reduziert werden (Prinzip der geringsten Privilegien). 
+
+***Access Control List:*** In der Zugriffskontrollliste werden die Zugriffsberechtigungen auf Objekte geführt. [12, S. 815]  
+[12] K.-R. Müller, IT-Sicherheit mit System: Integratives IT-Sicherheits-, Kontinuitäts- und Risikomanagement – Sichere Anwendungen – Standards und Practices, 6. Aufl. Wiesbaden: Springer Vieweg, 2018.
+
+***Application Allowlisting** (Whitelisting):* Diese Sicherheitskontrolle erlaubt die Ausführung ausschließlich vorgeprüfter Applikationen und Prozesse sowie den Zugriff auf zugelassene Dateien durch solche Applikationen. Darüber hinaus wird nur der Zugriff von Nutzern und Devices gestattet, die ebenfalls in der Allowlist aufgeführt sind. Entitäten, die nicht auf der Allowlist stehen, haben generell keinen Zugriff. [13]  
+[13] A. Krishnan, „Allowlisting vs. blocklisting: Benefits and challenges“, TechTarget, 10. Jan. 2022, 2022. [Online]. Verfügbar unter: https://www.techtarget.com/searchsecurity/tip/Allowlisting-vs-blocklisting-Benefits-and-challenges. Zugriff am: 6. Juni 2022.
+
+***Audit Log:*** Ein Audit Log ist eine Sammlung von Daten über Nutzeraktivitäten, die eine Zurückverfolgung und bei der Aufklärung eventueller Widersprüche helfen kann. [14, S. 549]  
+[14] Y. Ohtaki und K. Togashi, „A Practical Implementation of Searchable Encrypted Audit Logging System“ in Advances in Intelligent Systems and Computing Ser, v.1264, Advances in Networked-Based Information Systems: The 23rd International Conference on Network-Based Information Systems (NBiS-2020), L. Barolli, Hg., Cham: Springer International Publishing AG, 2021, S. 549–559, doi: 10.1007/978-3-030-57811-4_55.
+
+***DNS Redirect:*** Bei der *DNS-Redirection* wird eine andere Webseite ausgeliefert als angefordert wurde. [15]  
+[15] WhatIs.com, What is DNS redirection? - Definition from WhatIs.com. [Online]. Verfügbar unter: https://www.techtarget.com/whatis/definition/DNS-redirection (Zugriff am: 6. Juni 2022).
+
+***Hardening:*** Das *Härten* beschreibt einen Prozess, mit dem die Sicherheit eines Systems erhöht werden soll, indem Schwachstellen beseitigt und nicht erforderliche Services abgeschaltet werden. [16]  
+[16] Computer Security Resource Center, Glossary: Hardening. [Online]. Verfügbar unter: https://csrc.nist.gov/glossary/term/hardening (Zugriff am: 18. Juni 2022).
+
+***Honeypot:*** *Honigtöpfe* sind Attrappen von Systemen, die potenzielle Angreifer anlocken sollen, um deren Methoden und Techniken kennenzulernen, zu analysieren und Abwehrmaßnahmen zu entwickeln. [12, S. 525 f.]
+
+***IDS, IPS:*** Da ein Intrusion Detection und Intrusion Prevention System in vielen Stufen der Cyber Kill Chain eingesetzt und als Proof of Concept im Rahmen dieser Arbeit implementiert wird, werden IDPSe im Abschnitt 3.4.3 Intrusion Detection und Prevention Systeme ausführlicher beschrieben.
+
+***Network Segmentation:*** Bei der Netzwerksegmentierung wird zwecks Risikominimierung das Netzwerk derart aufgeteilt, dass kritische Netzwerksegmente von den unkritischen getrennt werden. Der Netzwerkverkehr wird an den Übergangspunkten zwischen den Netzwerksegmenten kontrolliert. [17, S. 145]  
+[17] M. Wurm, Automotive Cybersecurity: Security-Bausteine für Automotive Embedded Systeme, 1. Aufl. Berlin, Heidelberg: Springer Berlin Heidelberg; Imprint Springer Vieweg, 2022.
+
+***Quality of Service (QoS):*** Quality of Service umfasst Anforderungen an die Netzwerkperformanz hinsichtlich zulässiger Verzögerungen, Paketverlustraten und verfügbarer Übertragungsraten. [18, S. 253]  
+[18] P.-B. Bök, A. Noack, M. Müller und D. Behnke, „Quality of Service“ in Lehrbuch, Computernetze und Internet of Things: Technische Grundlagen und Spezialwissen, P.-B. Bök, A. Noack, M. Müller und D. Behnke, Hg., Wiesbaden, Heidelberg: Springer Vieweg, 2020, S. 251–291, doi: 10.1007/978-3-658-29409-0_14.
+
+***Security Information and Event Management (SIEM):*** SIEM-Systeme überwachen das IT-Netzwerk, sammeln Daten, analysieren diese und werten Ereignisse aus, um Sicherheitsprobleme zu erkennen. Logdateien werden verwaltet, Warnungen gesendet und Berichte erstellt. SIEM-Systeme werden eingesetzt, um Angriffe schneller identifizieren und eindämmen zu können. [19, S. 1509] [20, S. 33] [21]  
+[19] A. Majeed, R. ur Rasool, F. Ahmad, M. Alam und N. Javaid, „Near-miss situation based visual analysis of SIEM rules for real time network security monitoring“, J Ambient Intell Human Comput, Jg. 10, Nr. 4, S. 1509–1526, 2019, doi: 10.1007/s12652-018-0936-7.  
+[20] G.-S. Jeon, S.-H. Chun und J.-B. Kim, „A Study on the Methods for Establishing Security Information & Event Management“ in Studies in Computational Intelligence Ser, v.847, Applied Computing and Information Technology, R. Lee, Hg., Cham: Springer International Publishing AG, 2020, S. 33–45, doi: 10.1007/978-3-030-25217-5_3.  
+[21] Rapid7, Was ist SIEM und wie funktioniert es? Ein Überblick | Rapid7. [Online]. Verfügbar unter: https://www.rapid7.com/de/cybersecurity-grundlagen/siem/ (Zugriff am: 5. Juni 2022).
+
+***Tarpit:*** Mit *Teerfallen* können nicht erwünschte Verbindungen künstlich verlangsamt werden. Sie werden insbesondere gegen Würmer, Portscans und zur Spambekämpfung eingesetzt. [12, S. 526 f.]
+
+***Threat Intelligence:*** Die Aufgabe von Threat Intelligence besteht darin, Unternehmen oder Organisationen über die aktuelle Bedrohungslage aufzuklären und ihnen eine Entscheidungshilfe zu bieten, damit sie nach Möglichkeit einen strategischen Vorteil haben. Zu diesem Zweck werden Informationen zu spezifischen Bedrohungen und potenziellen Angriffsquellen gesammelt, analysiert und bereitgestellt. [22] [23, S. 233]  
+[22] ComputerWeekly.de, Was ist Threat Intelligence? - Definition von WhatIs.com. [Online]. Verfügbar unter: https://www.computerweekly.com/de/definition/Threat-Intelligence (Zugriff am: 5. Juni 2022).  
+[23] G. K. Singh und B. Arora, „Cyber Threat Intelligence “Comparative Analysis of Its Sources and Parameters of Evaluation”“ in Springer eBook Collection, Bd. 385, Innovations in Computer Science and Engineering: Proceedings of the Ninth ICICSE, 2021, H. S. Saini, R. Sayal, A. Govardhan und R. Buyya, Hg., 1 Aufl., Singapore: Springer Singapore; Imprint Springer, 2022, S. 233–243, doi: 10.1007/978-981-16-8987-1_25.
+
+***Trusted Computing (TC):*** Diese Technologie dient der Vertrauenswürdigkeit und Robustheit eines IT-Systems und umfasst Sicherheitskonzepte und -architekturen.
+
+***Two-factor Authentication (2FA):*** Für die Zwei-Faktor-Authentifizierung ist eine Kombination aus zwei Faktoren für die Authentifizierung erforderlich, z.B. Login-Credentials und einem PIN oder einem zeitlich begrenzten Code und einem biometrischen Faktor. [24, S. 104]  
+[24] N. Dutta, N. Jadav, S. Tanwar, H. K. D. Sarma und E. Pricop, Cyber Security: Issues and Current Trends, 1. Aufl. Singapore: Springer Singapore; Imprint Springer, 2022.
+
+***Vigilant User:*** Nutzer können mit Hilfe von Awareness-Trainings wachsamer werden und damit zu Vigilant Usern (aufmerksame Benutzer) werden.
+
+***Web Analytics:*** Die Webanalyse umfasst die Sammlung und Auswertung von Daten, um Rückschlüsse auf das Nutzerverhalten auf Webseiten ziehen zu können. [25]  
+[25] SearchBusinessAnalytics, What is web analytics? [Online]. Verfügbar unter: https://www.techtarget.com/searchbusinessanalytics/definition/Web-analytics (Zugriff am: 5. Juni 2022).
+
 # Auswahl eines Intrusion Detection und Prevention Systems
 IDS-/IPS-Lösung identifizieren potenzielle Bedrohungen auf der Grundlage  
 integrierter Regeln und Profile. Diese Regeln beruhen im Allgemeinen  
