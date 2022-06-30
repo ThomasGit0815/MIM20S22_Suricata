@@ -1,7 +1,6 @@
 
 # Sicherheitsmaßnahmen in einer Cyber Kill Chain
-***Access Control:*** Die Zugriffskontrolle umfasst die Zugriffsverwaltung und   
--steuerung auf bestimmte Objekte. Die Zugriffsrechte der Benutzer sollten auf ein Minimum reduziert werden (Prinzip der geringsten Privilegien).   
+***Access Control:*** Die Zugriffskontrolle umfasst die Zugriffsverwaltung und -steuerung auf bestimmte Objekte. Die Zugriffsrechte der Benutzer sollten auf ein Minimum reduziert werden (Prinzip der geringsten Privilegien).   
 
 ***Access Control List:*** In der Zugriffskontrollliste werden die Zugriffsberechtigungen auf Objekte geführt. [1, S. 815]  
 
